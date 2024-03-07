@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 DANK MEME CRYPTO PRESALE 🚀</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #ff66cc, #33ccff, #ffff66);
+            animation: rainbow 10s linear infinite;
+        }
+        @keyframes rainbow {
+            0% {
+                background: linear-gradient(to bottom right, #ff66cc, #33ccff, #ffff66);
+            }
+            25% {
+                background: linear-gradient(to bottom right, #33ccff, #ffff66, #ff66cc);
+            }
+            50% {
+                background: linear-gradient(to bottom right, #ffff66, #ff66cc, #33ccff);
+            }
+            75% {
+                background: linear-gradient(to bottom right, #ff66cc, #33ccff, #ffff66);
+            }
+            100% {
+                background: linear-gradient(to bottom right, #33ccff, #ffff66, #ff66cc);
+            }
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: #ffcc00;
+            border-radius: 40px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        h1, h2, p {
+            color: #ff69b4;
+            font-size: 36px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .button {
+            display: inline-block;
+            background-color: #ff8c00;
+            color: white;
+            padding: 30px 60px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 50px;
+            font-size: 36px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            outline: none;
+        }
+        .button:hover {
+            background-color: #ff4500;
+        }
+        .social-icons {
+            margin-top: 80px;
+        }
+        .social-icons a {
+            display: inline-block;
+            margin: 0 60px;
+            transition: transform 0.5s;
+        }
+        .social-icons a:hover img {
+            animation: memeAnimation 1s linear infinite;
+        }
+        .social-icons img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            filter: invert(100%);
+        }
+        @keyframes memeAnimation {
+            0% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(15deg);
+            }
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+        .game-container {
+            margin-top: 100px;
+            animation: shake 0.5s ease infinite;
+        }
+        @keyframes shake {
+            0% {
+                transform: translateX(-10px) rotate(-5deg);
+            }
+            50% {
+                transform: translateX(10px) rotate(5deg);
+            }
+            100% {
+                transform: translateX(-10px) rotate(-5deg);
+            }
+        }
+        .question {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .answer {
+            margin-bottom: 30px;
+        }
+        input[type="text"], button {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            font-size: 36px;
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 DANK MEME CRYPTO PRESALE 🚀</h1>
+        <p>🔥 Don't miss your chance to become a meme crypto billionaire! 💰</p>
+        <p>Click the button below to start the quiz and access the presale:</p>
+        <button type="button" onclick="startQuiz()" class="button">Complete the Quiz to Access Presale</button>
+        <p>Follow us on social media for the spiciest memes:</p>
+        <div class="social-icons">
+            <div class="social-icon"><img src="pepe.png" alt="Pepe"></div>
+            <div class="social-icon"><img src="doge.png" alt="Doge"></div>
+            <div class="social-icon"><img src="nyancat.png" alt="Nyan Cat"></div>
+            <div class="social-icon"><img src="hodl.png" alt="HODL"></div>
+            <div class="social-icon"><img src="tothemoon.png" alt="To The Moon"></div>
+            <div class="social-icon"><img src="lambo.png" alt="Lambo"></div>
+            <div class="social-icon"><img src="bitcoin.png" alt="Bitcoin"></div>
+            <div class="social-icon"><img src="ethereum.png" alt="Ethereum"></div>
+            <div class="social-icon"><img src="altcoin.png" alt="Altcoin"></div>
+        </div>
+    </div>
+
+    <div class="game-container" id="game1" style="display:none;">
+        <h2>Guess the Crypto!</h2>
+        <p>I'm a cryptocurrency known for my decentralized platform and smart contract functionality. Who am I?</p>
+        <input type="text" id="cryptoGuess" placeholder="Enter your guess">
+        <button onclick="checkGuess()">Check Guess</button>
+        <p id="result"></p>
+    </div>
+
+    <div class="game-container" id="game2" style="display:none;">
+        <h2>Crypto Trivia!</h2>
+        <div class="question" id="question"></div>
+        <div class="answer">
+            <input type="text" id="answerInput" placeholder="Your Answer">
+            <button onclick="checkAnswer()">Check Answer</button>
+        </div>
+        <p id="answerResult"></p>
+    </div>
+
+    <script>
+        function startQuiz() {
+            document.getElementById("game1").style.display = "block";
+            document.querySelector(".button").innerText = "Complete the Quiz to Access Presale";
+        }
+
+        var questions = [
+            {
+                question: "What is the first cryptocurrency?",
+                answer: "Bitcoin"
+            },
+            {
+                question: "Who is the founder of Ethereum?",
+                answer: "Vitalik Buterin"
+            },
+            {
+                question: "What is the maximum supply of Bitcoin?",
+                answer: "21 million"
+            },
+            {
+                question: "What does ICO stand for?",
+                answer: "Initial Coin Offering"
+            },
+            {
+                question: "What is the consensus algorithm used by Ethereum 2.0?",
+                answer: "Proof of Stake"
+            }
+        ];
+
+        var currentQuestionIndex = 0;
+        var totalQuestions = questions.length;
+
+        function displayQuestion() {
+            document.getElementById("question").innerText = questions[currentQuestionIndex].question;
+        }
+
+        function checkAnswer() {
+            var userAnswer = document.getElementById("answerInput").value.trim();
+            var correctAnswer = questions[currentQuestionIndex].answer.toLowerCase();
+            if (userAnswer.toLowerCase() === correctAnswer) {
+                document.getElementById("answerResult").innerText = "Correct! 🎉";
+                currentQuestionIndex++;
+                if (currentQuestionIndex < totalQuestions) {
+                    displayQuestion();
+                } else {
+                    document.getElementById("answerInput").disabled = true;
+                    document.getElementById("answerInput").value = "";
+                    document.querySelector("button").disabled = true;
+                    document.getElementById("game1").style.display = "none";
+                    document.getElementById("game2").style.display = "block";
+                }
+            } else {
+                alert("Incorrect! Game over. Try again!");
+                window.close();
+            }
+        }
+
+        function checkGuess() {
+            var guess = document.getElementById("cryptoGuess").value.toLowerCase();
+            if (guess === "pulsechain") {
+                document.getElementById("result").innerText = "Correct! You guessed Pulsechain!";
+                document.getElementById("game1").style.display = "none";
+                document.getElementById("game2").style.display = "block";
+                displayQuestion();
+            } else {
+                document.getElementById("result").innerText = "Incorrect! Game over. Try again!";
+                window.close();
+            }
+        }
+    </script>
+</body>
+</html>
