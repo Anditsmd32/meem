@@ -11,6 +11,7 @@
             padding: 0;
             background: linear-gradient(to bottom right, #ff66cc, #33ccff, #ffff66);
             animation: rainbow 10s linear infinite;
+            animation: shake 0.5s ease infinite;
         }
         @keyframes rainbow {
             0% {
@@ -168,9 +169,15 @@
         <p id="answerResult"></p>
     </div>
 
-    <script>
-        var quizzesCompleted = false;
+    <iframe
+        src="https://embed.ipfscdn.io/ipfs/bafybeigdie2yyiazou7grjowoevmuip6akk33nqb55vrpezqdwfssrxyfy/erc20.html?contract=0x32fa56D717cBFD3c6d3d22B8E188ddB4eF7d3F11&chain=%7B%22name%22%3A%22PulseChain%22%2C%22chain%22%3A%22PLS%22%2C%22rpc%22%3A%5B%22https%3A%2F%2F369.rpc.thirdweb.com%2F%24%7BTHIRDWEB_API_KEY%7D%22%5D%2C%22nativeCurrency%22%3A%7B%22name%22%3A%22Pulse%22%2C%22symbol%22%3A%22PLS%22%2C%22decimals%22%3A18%7D%2C%22shortName%22%3A%22pls%22%2C%22chainId%22%3A369%2C%22testnet%22%3Afalse%2C%22slug%22%3A%22pulsechain%22%7D&clientId=1d49d998fa8da4ed2296d582e76cab95&theme=light&primaryColor=purple"
+        width="600px"
+        height="600px"
+        style="max-width:100%;"
+        frameborder="0"
+    ></iframe>
 
+    <script>
         function startQuiz() {
             document.getElementById("game1").style.display = "block";
             document.querySelector(".button").innerText = "Complete the Quiz to Access Presale";
@@ -215,13 +222,11 @@
                 if (currentQuestionIndex < totalQuestions) {
                     displayQuestion();
                 } else {
-                    quizzesCompleted = true;
                     document.getElementById("answerInput").disabled = true;
                     document.getElementById("answerInput").value = "";
                     document.querySelector("button").disabled = true;
                     document.getElementById("game1").style.display = "none";
                     document.getElementById("game2").style.display = "block";
-                    activatePresaleButton();
                 }
             } else {
                 alert("Incorrect! Game over. Try again!");
@@ -233,33 +238,13 @@
             var guess = document.getElementById("cryptoGuess").value.toLowerCase();
             if (guess === "pulsechain") {
                 document.getElementById("result").innerText = "Correct! You guessed Pulsechain!";
-                quizzesCompleted = true;
                 document.getElementById("game1").style.display = "none";
                 document.getElementById("game2").style.display = "block";
                 displayQuestion();
-                activatePresaleButton();
             } else {
                 document.getElementById("result").innerText = "Incorrect! Game over. Try again!";
                 window.close();
             }
-        }
-
-        function activatePresaleButton() {
-            if (quizzesCompleted) {
-                document.querySelector(".button").innerText = "Access Presale";
-                document.querySelector(".button").setAttribute("onclick", "activatePresale()");
-            }
-        }
-
-        function activatePresale() {
-            document.querySelector(".button").style.display = "none";
-            var iframe = document.createElement('iframe');
-            iframe.src = "https://embed.ipfscdn.io/ipfs/bafybeigdie2yyiazou7grjowoevmuip6akk33nqb55vrpezqdwfssrxyfy/erc20.html?contract=0x32fa56D717cBFD3c6d3d22B8E188ddB4eF7d3F11&chain=%7B%22name%22%3A%22PulseChain%22%2C%22chain%22%3A%22PLS%22%2C%22rpc%22%3A%5B%22https%3A%2F%2F369.rpc.thirdweb.com%2F%24%7BTHIRDWEB_API_KEY%7D%22%5D%2C%22nativeCurrency%22%3A%7B%22name%22%3A%22Pulse%22%2C%22symbol%22%3A%22PLS%22%2C%22decimals%22%3A18%7D%2C%22shortName%22%3A%22pls%22%2C%22chainId%22%3A369%2C%22testnet%22%3Afalse%2C%22slug%22%3A%22pulsechain%22%7D&clientId=1d49d998fa8da4ed2296d582e76cab95&theme=light&primaryColor=purple";
-            iframe.width = "600px";
-            iframe.height = "600px";
-            iframe.style.maxWidth = "100%";
-            iframe.frameBorder = "0";
-            document.body.appendChild(iframe);
         }
     </script>
 </body>
