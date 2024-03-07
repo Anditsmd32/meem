@@ -11,6 +11,7 @@
             padding: 0;
             background: linear-gradient(to bottom right, #ff66cc, #33ccff, #ffff66);
             animation: rainbow 10s linear infinite;
+            animation: shake 0.5s ease infinite;
         }
         @keyframes rainbow {
             0% {
@@ -91,17 +92,25 @@
         }
         .game-container {
             margin-top: 100px;
-            animation: shake 0.5s ease infinite;
         }
         @keyframes shake {
             0% {
-                transform: translateX(-10px) rotate(-5deg);
+                transform: translate(0);
             }
-            50% {
-                transform: translateX(10px) rotate(5deg);
+            10%, 90% {
+                transform: translate(-5px, 5px);
+            }
+            20%, 80% {
+                transform: translate(-10px, 10px);
+            }
+            30%, 50%, 70% {
+                transform: translate(-15px, 15px);
+            }
+            40%, 60% {
+                transform: translate(-10px, 10px);
             }
             100% {
-                transform: translateX(-10px) rotate(-5deg);
+                transform: translate(0);
             }
         }
         .question {
